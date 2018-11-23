@@ -35,6 +35,42 @@ investigated yet, like:
 * Multiple I/O ports for Controllers and Memory Cards
 * Probably more!
 
+## How does an emulator work?
+
+Pretty much just like any computer does. You load the executable in memory,
+then you start the CPU fetch / decode / execute loop. You just do all of this
+in C++ instead of using transistors. Like this:
+
+~~~
+uint32_t programCounter = 0;
+
+while (true) {
+  uint32_t instruction = memoryRead32(programCounter);
+
+  switch (instruction) {
+    case 0:
+      // do this
+    case 1:
+      // do that
+    // ...
+  }
+
+  programCounter++;
+}
+~~~
+
+All the memory read and writes happen on a simple RAM-sized C array. Like this:
+
+~~~
+char *memory = new char[2 * 1024 * 1024];
+
+uint32_t memoryRead32(uint32_t address) {
+  // Cast the pointer to the size
+  uint32_t *ptr = (uint32_t *) &memory[address];
+  return *ptr;
+}
+~~~
+
 ## Shall we begin?
 
 First of all, I've setup a tiny C++ development environment. I'm not using
