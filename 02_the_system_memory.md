@@ -86,3 +86,7 @@ event as closely as possible to the orignal hardware.
 
 For this reason, I'll put a guard for any memory access in the "dark undefined
 areas".
+
+## Show me the code!
+
+You can checkout the code at this stage [Github](https://github.com/aomega08/psemu/tree/9757e72828d13fa616b9e0bb804912c9f4f30df8).
