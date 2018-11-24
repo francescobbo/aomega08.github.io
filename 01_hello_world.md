@@ -15,14 +15,14 @@ can think of it like the SSE or AVX extensions for Intel CPUs.
 
 ### The RAM
 
-It comes with a huge **2 MiB RAM**. Considering that a CD-ROM could hold 700 MiB
+It comes with a huge **2 MB RAM**. Considering that a CD-ROM could hold 700 MB
 of data, you can imagine how many times a game would go back and forth to the CD
 to load textures, levels and stuff.
 
 ### The GPU
 
 It also has a quite primitive GPU that only supports 2D operations, with a
-**1 MiB VRAM**. This memory cannot be addressed by the CPU directly and it
+**1 MB VRAM**. This memory cannot be addressed by the CPU directly and it
 is where the final pixels are drawn for the display to pick up.
 
 ### Other devices
