@@ -83,4 +83,4 @@ Nice to see I can still write compilable C++ and Makefiles after all this years.
 
 ## Show me the code!
 
-You can checkout the code at this stage [Github](https://github.com/aomega08/psemu/tree/acab2656658fe1f852f587cc8f4931331d314f47).
+You can checkout the code at this stage on [Github](https://github.com/aomega08/psemu/tree/acab2656658fe1f852f587cc8f4931331d314f47).

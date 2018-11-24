@@ -90,4 +90,4 @@ areas".
 
 ## Show me the code!
 
-You can checkout the code at this stage [Github](https://github.com/aomega08/psemu/tree/9757e72828d13fa616b9e0bb804912c9f4f30df8).
+You can checkout the code at this stage on [Github](https://github.com/aomega08/psemu/tree/9757e72828d13fa616b9e0bb804912c9f4f30df8).
