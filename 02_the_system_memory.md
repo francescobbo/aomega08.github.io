@@ -19,24 +19,25 @@ later chapters.
 #### R3000A Memory segments
 
 First of all, the MIPS R3000 architecture is designed to split the virtual
-address space in 4 areas (or segments), called *KUSEG*, *KSEG0*, *KSEG1* and
-*KSEG2*.
+address space in 4 areas (or segments), called *`KUSEG`*, *`KSEG0`*, *`KSEG1`*
+and *`KSEG2`*.
 
-The **KUSEG** area is 2 GiB large, goes from 0000_0000 to 7FFF_FFFF and is meant
-to be the only one accessible by user-mode software (eg, not kernel, but
+The **`KUSEG`** area is 2 GiB large, goes from 0000_0000 to 7FFF_FFFF and is
+meant to be the only one accessible by user-mode software (eg, not kernel, but
 applications - or games?).
 
-**KSEG0** and **KSEG1** are both 512 MiB large, the first starts at 8000_0000
-and the other at A000_0000. They are both mapped to the first 512 MiB of
-physical memory directly (accessing A000_0000 reads physical address 0000_0000).
-The big difference between these two is that memory access to *KSEG1* are not
+**`KSEG0`** and **`KSEG1`** are both 512 MiB large, the first starts at
+8000_0000 and the other at A000_0000. They are both mapped to the first 512 MiB
+of physical memory directly (accessing A000_0000 reads physical address
+0000_0000). The big difference between these two is that memory access to
+*`KSEG1`* are not
 using the CPU cache (reads go directly to RAM).
 
-Finally **KSEG2** is a 1 GiB large memory area which, according to the R3000
+Finally **`KSEG2`** is a 1 GiB large memory area which, according to the R3000
 documentation, starts at 0xC000_0000 and allows you to read and write directly
 at the 3rd gigabyte of physical memory. The PS1 clearly does not have that much
 memory (maybe only NSA-grade computers did back in 1989), so we can imagine that
-KSEG2 does not exist.
+`KSEG2` does not exist.
 
 #### The firmware ROM (or BIOS)
 
@@ -44,7 +45,7 @@ The MIPS architecture loads the boot firmware ROM at physical address 1FC0_0000.
 It is exactly 512 KiB large, and it's (or is it?) read only.
 
 Interestingly, the boot address of the MIPS CPU is BFC0_0000, not 1FC0_0000.
-This address lives in KSEG1, which is not cached.
+This address lives in `KSEG1`, which is not cached.
 
 Again by reading the manual, you learn that CPU caches could be in a random,
 inconsistent state at boot, so the firmware starts it's execution in a slower,
@@ -53,7 +54,7 @@ are cleaned.
 
 #### More PSX specific
 
-Even though KUSEG has a respectable 2 GiB size, the PS only has 2 MiB of
+Even though `KUSEG` has a respectable 2 GiB size, the PS only has 2 MiB of
 physical memory, which is available directly from address 0000_0000 onward.
 
 An interesting feature (or bug? And why would you do this?) is that the first
@@ -74,7 +75,7 @@ bytes).
 
 Right now, for every memory access I will simply ignore bits 29 to 31, bringing
 everything to `KUSEG`. I'm not sure I can even emulate the caches (make things
-slower in KSEG1?).
+slower in `KSEG1`?).
 
 ## Undefined behaviours
 
